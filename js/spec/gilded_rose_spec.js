@@ -15,7 +15,6 @@ describe("Gilded Rose", function() {
   it("Normal item on sell date", function() {
     items = [ new Item("normal", 0, 10) ];
     update_quality();
-    //TODO check quality in normal item for python
     expect(items[0].quality).toBe(8);
     expect(items[0].sell_in).toBe(-1);
   });
