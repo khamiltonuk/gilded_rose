@@ -55,17 +55,17 @@ describe("Gilded Rose", function() {
   });
 
   it("Brie item on sell date near max quality", function() {
-    items = [ new Item("Aged Brie", 5, 49) ];
+    items = [ new Item("Aged Brie", 0, 49) ];
     update_quality();
     expect(items[0].quality).toBe(50);
-    expect(items[0].sell_in).toBe(4);
+    expect(items[0].sell_in).toBe(-1);
   });
 
   it("Brie item on sell date with max quality", function() {
-    items = [ new Item("Aged Brie", 5, 50) ];
+    items = [ new Item("Aged Brie", 0, 50) ];
     update_quality();
     expect(items[0].quality).toBe(50);
-    expect(items[0].sell_in).toBe(4);
+    expect(items[0].sell_in).toBe(-1);
   });
 
   it("Brie item after sell date", function() {
@@ -185,7 +185,7 @@ describe("Gilded Rose", function() {
   // it("Conjured item at zero quality", function() {
   //   items = [ new Item("Conjured Mana Cake", 5, 0) ];
   //   update_quality();
-  //   expect(items[0].quality).toBe(8);
+  //   expect(items[0].quality).toBe(0);
   //   expect(items[0].sell_in).toBe(4);
   // });
   //

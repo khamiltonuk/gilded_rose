@@ -89,7 +89,7 @@ class GildedRoseSpec extends Specification {
 
     def "Brie item on sell date near max quality"() {
         given: "a Brie item on sell date near max quality"
-        Item[] items = [new Item("Aged Brie", 5, 49)];
+        Item[] items = [new Item("Aged Brie", 0, 49)];
         GildedRose app = new GildedRose(items);
 
         when: "updating quality"
@@ -97,12 +97,12 @@ class GildedRoseSpec extends Specification {
 
         then: "the quality and days remaining are correct"
         app.items[0].quality == 50
-        app.items[0].sellIn == 4
+        app.items[0].sellIn == -1
     }
 
     def "Brie item on sell date with max quality"() {
         given: "a Brie item on sell date with max quality"
-        Item[] items = [new Item("Aged Brie", 5, 50)];
+        Item[] items = [new Item("Aged Brie", 0, 50)];
         GildedRose app = new GildedRose(items);
 
         when: "updating quality"
@@ -110,7 +110,7 @@ class GildedRoseSpec extends Specification {
 
         then: "the quality and days remaining are correct"
         app.items[0].quality == 50
-        app.items[0].sellIn == 4
+        app.items[0].sellIn == -1
     }
 
     def "Brie item after sell date"() {
@@ -319,7 +319,7 @@ class GildedRoseSpec extends Specification {
         app.updateQuality();
 
         then: "the quality and days remaining are correct"
-        app.items[0].quality == 8
+        app.items[0].quality == 0
         app.items[0].sellIn == 4
     }
 

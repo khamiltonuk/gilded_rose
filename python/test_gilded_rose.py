@@ -52,18 +52,18 @@ def test_brie_on_sell_date():
     assert -1 == gilded_rose.days_remaining
 
 def test_brie_on_sell_date_near_max_quality():
-    gilded_rose = GildedRose("Aged Brie", 49, 5)
+    gilded_rose = GildedRose("Aged Brie", 49, 0)
     gilded_rose.tick()
 
     assert 50 == gilded_rose.quality
-    assert 4 == gilded_rose.days_remaining
+    assert -1 == gilded_rose.days_remaining
 
 def test_brie_on_sell_date_with_max_quality():
-    gilded_rose = GildedRose("Aged Brie", 50, 5)
+    gilded_rose = GildedRose("Aged Brie", 50, 0)
     gilded_rose.tick()
 
     assert 50 == gilded_rose.quality
-    assert 4 == gilded_rose.days_remaining
+    assert -1 == gilded_rose.days_remaining
 
 def test_brie_after_sell_date():
     gilded_rose = GildedRose("Aged Brie", 10, -10)
@@ -190,7 +190,7 @@ def test_conjured_item_at_zero_quality():
     gilded_rose = GildedRose("Conjured Mana Cake", 0, 5)
     gilded_rose.tick()
 
-    assert 8 == gilded_rose.quality
+    assert 0 == gilded_rose.quality
     assert 4 == gilded_rose.days_remaining
 
 @pytest.mark.skipif(True, reason='not implemented')
