@@ -26,7 +26,7 @@ Pretty simple, right? Well this is where it gets interesting:
 
 We have recently signed a supplier of conjured items. This requires an update to our system:
 
-	* "Conjured" items degrade in Quality twice as fast as normal items
+* "Conjured" items degrade in Quality twice as fast as normal items
 
 
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
