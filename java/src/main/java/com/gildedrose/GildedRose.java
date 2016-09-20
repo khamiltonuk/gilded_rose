@@ -1,62 +1,66 @@
 package com.gildedrose;
 
 class GildedRose {
-    Item[] items;
 
-    public GildedRose(Item[] items) {
-        this.items = items;
+    public String name;
+    public int sellIn;
+    public int quality;
+
+    public GildedRose(String name, int sellIn, int quality) {
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            if (!items[i].name.equals("Aged Brie")
-                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items[i].quality = items[i].quality - 1;
-                    }
-                }
-            } else {
-                if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1;
-
-                    if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
-                            }
-                        }
-
-                        if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
-                            }
-                        }
-                    }
+        if (!this.name.equals("Aged Brie")
+                && !this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (this.quality > 0) {
+                if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    this.quality = this.quality - 1;
                 }
             }
+        } else {
+            if (this.quality < 50) {
+                this.quality = this.quality + 1;
 
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                items[i].sellIn = items[i].sellIn - 1;
-            }
-
-            if (items[i].sellIn < 0) {
-                if (!items[i].name.equals("Aged Brie")) {
-                    if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].quality > 0) {
-                            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                                items[i].quality = items[i].quality - 1;
-                            }
+                if (this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (this.sellIn < 11) {
+                        if (this.quality < 50) {
+                            this.quality = this.quality + 1;
                         }
-                    } else {
-                        items[i].quality = items[i].quality - items[i].quality;
                     }
-                } else {
-                    if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1;
+
+                    if (this.sellIn < 6) {
+                        if (this.quality < 50) {
+                            this.quality = this.quality + 1;
+                        }
                     }
                 }
             }
         }
+
+        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+            this.sellIn = this.sellIn - 1;
+        }
+
+        if (this.sellIn < 0) {
+            if (!this.name.equals("Aged Brie")) {
+                if (!this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (this.quality > 0) {
+                        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+                            this.quality = this.quality - 1;
+                        }
+                    }
+                } else {
+                    this.quality = this.quality - this.quality;
+                }
+            } else {
+                if (this.quality < 50) {
+                    this.quality = this.quality + 1;
+                }
+            }
+        }
+
     }
 }
