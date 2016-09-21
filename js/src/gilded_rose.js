@@ -17,8 +17,23 @@ function GildedRose(name, sell_in, quality) {
 
   this.update_quality = function() {
 
+    if (this.name != 'Sulfuras, Hand of Ragnaros') {
+      this.sell_in = this.sell_in - 1;
+    }
 
-    if (this.name != 'Aged Brie' && this.name != 'Backstage passes to a TAFKAL80ETC concert' && this.quality > 0 && this.name != 'Sulfuras, Hand of Ragnaros') {
+    if (this.name == 'Aged Brie') {
+      if (this.quality < 50) {
+        this.increaseQualityBy(1);
+      }
+      if ()
+      return
+    }
+
+
+    if (this.name != 'Aged Brie'
+      && this.name != 'Backstage passes to a TAFKAL80ETC concert'
+      && this.quality > 0
+      && this.name != 'Sulfuras, Hand of Ragnaros') {
       this.decreaseQualityBy(1)
     }
     else if(this.name == 'Aged Brie' || this.name == 'Backstage passes to a TAFKAL80ETC concert') {
@@ -27,20 +42,17 @@ function GildedRose(name, sell_in, quality) {
       }
 
       if (this.name == 'Backstage passes to a TAFKAL80ETC concert'
-        && this.sell_in < 11
+        && this.sell_in < 10
         && this.quality < 50) {
           this.increaseQualityBy(1);
 
       }
       if (this.name == 'Backstage passes to a TAFKAL80ETC concert'
-        && this.sell_in < 6
+        && this.sell_in < 5
         && this.quality < 50) {
           this.increaseQualityBy(1);
       }
 
-    }
-    if (this.name != 'Sulfuras, Hand of Ragnaros') {
-      this.sell_in = this.sell_in - 1;
     }
 
 
